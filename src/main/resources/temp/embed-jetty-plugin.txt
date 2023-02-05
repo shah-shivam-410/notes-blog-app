@@ -1,0 +1,48 @@
+<plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>10.0.12</version>
+        <configuration>
+          <!--
+            Reload webapp when you hit ENTER. (See JETTY-282 for more)
+          -->
+          <reload>manual</reload>
+          <httpConnector>
+            <host>${host}</host>
+            <port>${port}</port>
+          </httpConnector>
+          <loginServices>
+            <loginService implementation="org.eclipse.jetty.security.HashLoginService">
+              <name>default</name>
+              <config>${basedir}/src/realm.properties</config>
+            </loginService>
+          </loginServices>
+          <systemProperties>
+            <JENKINS_HOME>${JENKINS_HOME}</JENKINS_HOME>
+            <!-- always reload views during debugging -->
+            <stapler.jelly.noCache>true</stapler.jelly.noCache>
+            <!-- show the stapler evaluation during execution -->
+            <stapler.trace>true</stapler.trace>
+            <!-- show the full stack trace on errors (the oops page) -->
+            <jenkins.model.Jenkins.SHOW_STACK_TRACE>true</jenkins.model.Jenkins.SHOW_STACK_TRACE>
+            <!-- always reload scripts during debugging -->
+            <hudson.script.noCache>true</hudson.script.noCache>
+            <!-- load view resources from the source directly, again for real time change -->
+            <stapler.resourcePath>../core/src/main/resources;</stapler.resourcePath>
+            <!-- enable the plugins in main by default -->
+            <!-- run "mvn install" once will generate the.hpl -->
+            <hudson.bundled.plugins>${project.build.directory}/${project.build.finalName}/WEB-INF/plugins/*.hpi</hudson.bundled.plugins>
+            <!-- stat collection pointless -->
+            <hudson.model.UsageStatistics.disabled>true</hudson.model.UsageStatistics.disabled>
+            <hudson.Main.development>true</hudson.Main.development>
+          </systemProperties>
+          <webApp>
+            <!-- Allows resources to be reloaded, and enable nicer console logging. -->
+            <extraClasspath>${project.basedir}/../core/src/main/resources,${project.basedir}/../core/target/classes,${project.build.directory}/support-log-formatter.jar</extraClasspath>
+            <contextPath>${contextPath}</contextPath>
+            <configurationDiscovered>false</configurationDiscovered>
+            <!-- see https://wiki.eclipse.org/Jetty/Howto/Avoid_slow_deployment -->
+            <webInfIncludeJarPattern>NONE</webInfIncludeJarPattern>
+          </webApp>
+        </configuration>
+      </plugin>
