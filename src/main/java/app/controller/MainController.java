@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-	
-	Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@GetMapping(path = "/")
+	Logger logger = LoggerFactory.getLogger(MainController.class);
+
+	@GetMapping(path = "/home")
 	public String home() {
-		logger.info("Endpoint invoked: {}, Method Invoked: {}", "/", "home");
-		return "index";
+		return "home";
 	}
-	
+
 }

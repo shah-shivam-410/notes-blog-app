@@ -53,17 +53,24 @@
 			<version>10.1.5</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<finalName>TestBlogApp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.2</version>
-				<!-- <configuration>
-					<webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory>
-				</configuration> -->
+				<!-- <configuration> <webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory> 
+					</configuration> -->
 			</plugin>
 		</plugins>
 	</build>

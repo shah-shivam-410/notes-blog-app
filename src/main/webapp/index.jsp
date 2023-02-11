@@ -5,6 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello
+	Index
+
+	<hr>
+	<button id="btn">Click me</button>
+	
+	
 </body>
 </html>
