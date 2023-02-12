@@ -9,10 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
 	Logger logger = LoggerFactory.getLogger(MainController.class);
-
+	
 	@GetMapping(path = "/home")
 	public String home() {
 		return "home";
+	}
+	
+	@GetMapping(path = "/notes")
+	public String notes() {
+		return "notes";
+	}
+	
+	@GetMapping(path = "/blogs")
+	public String blogs() {
+		return "blogs";
 	}
 
 }
