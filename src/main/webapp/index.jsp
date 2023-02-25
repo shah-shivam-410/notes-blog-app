@@ -33,7 +33,7 @@
       <h2>Welcome to my blog</h2> <br>
       <a class="btn btn-group-lg btn-secondary border border-light btn-block" href="./login">Login</a>
       <a class="btn btn-group-lg btn-secondary border border-light btn-block" href="./signup">Sign up</a>
-      <a class="btn btn-group-lg btn-secondary border border-light btn-block" href="./home">I'll do later...</a>
+      <a class="btn btn-group-lg btn-secondary border border-light btn-block" href="./notes">I'll do later...</a>
     </div>
   </div>
 
