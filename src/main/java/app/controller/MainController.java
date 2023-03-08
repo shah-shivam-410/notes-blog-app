@@ -18,13 +18,11 @@ public class MainController {
 	
 	@RequestMapping(path = "/home")
 	public String home() {
-		
 		return "home";
 	}
 	
 	@RequestMapping(path = "/notes")
 	public String notes(Model model) {
-		System.out.println("showing notes");
 		model.addAttribute("notes", str.getAllNotes());
 		return "notes";
 	}

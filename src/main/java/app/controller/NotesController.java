@@ -15,16 +15,10 @@ public class NotesController {
 
 	@PostMapping("/addnote")
 	public String addNote(HttpServletRequest req) {
-
-		System.out.println("Inside add note servelet");
-
 		Note n = new Note();
 		n.setTitle(req.getParameter("title"));
 		n.setDescription(req.getParameter("description"));
-
-		System.out.println(n);
 		str.upsertNote(n);
-
 		return "redirect:notes";
 	}
 
